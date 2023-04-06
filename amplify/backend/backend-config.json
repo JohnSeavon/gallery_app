@@ -1,4 +1,10 @@
 {
+  "analytics": {
+    "galleryapp": {
+      "providerPlugin": "awscloudformation",
+      "service": "Pinpoint"
+    }
+  },
   "auth": {
     "galleryapp6ff87cae": {
       "customAuth": false,

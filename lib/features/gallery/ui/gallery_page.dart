@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery_app/features/gallery/analytics/analytics_events.dart';
+import 'package:gallery_app/features/gallery/services/analytics_service.dart';
 
 class GalleryPage extends StatelessWidget {
   final StreamController<List<String>> imageUrlsController;
@@ -10,12 +12,14 @@ class GalleryPage extends StatelessWidget {
 
   final VoidCallback shouldShowCamera;
 
-  const GalleryPage({
+  GalleryPage({
     required this.imageUrlsController,
     required this.shouldLogOut,
     required this.shouldShowCamera,
     super.key,
-  });
+  }) {
+    AnalyticsService.log(ViewGalleryEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,12 +28,9 @@ class GalleryPage extends StatelessWidget {
         centerTitle: true,
         title: const Text('Gallery'),
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8),
-            child: GestureDetector(
-              onTap: shouldLogOut,
-              child: const Icon(Icons.logout),
-            ),
+          IconButton(
+            onPressed: shouldLogOut,
+            icon: const Icon(Icons.logout),
           )
         ],
       ),

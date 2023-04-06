@@ -1,5 +1,7 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:gallery_app/features/gallery/analytics/analytics_events.dart';
+import 'package:gallery_app/features/gallery/services/analytics_service.dart';
 
 class CameraPage extends StatefulWidget {
   final CameraDescription camera;
@@ -57,6 +59,9 @@ class _CameraPageState extends State<CameraPage> {
       final XFile file = await _controller.takePicture();
 
       widget.didProvideImagePath(file.path);
+
+      AnalyticsService.log(TakePictureEvent(
+          cameraDirection: widget.camera.lensDirection.toString()));
     } catch (e) {
       print(e);
     }

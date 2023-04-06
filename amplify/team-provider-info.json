@@ -17,6 +17,9 @@
       },
       "storage": {
         "s3f2c38aac": {}
+      },
+      "analytics": {
+        "galleryapp": {}
       }
     }
   }

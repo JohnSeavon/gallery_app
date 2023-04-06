@@ -1,4 +1,11 @@
 export type AmplifyDependentResourcesAttributes = {
+  "analytics": {
+    "galleryapp": {
+      "Id": "string",
+      "Region": "string",
+      "appName": "string"
+    }
+  },
   "auth": {
     "galleryapp6ff87cae": {
       "AppClientID": "string",
