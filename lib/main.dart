@@ -1,5 +1,6 @@
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_flutter/amplify_flutter.dart';
+import 'package:amplify_storage_s3/amplify_storage_s3.dart';
 import 'package:flutter/material.dart';
 import 'package:gallery_app/amplifyconfiguration.dart';
 import 'package:gallery_app/features/gallery/services/auth_service.dart';
@@ -88,6 +89,7 @@ class _MyAppState extends State<MyApp> {
     try {
       await _amplify.addPlugins([
         AmplifyAuthCognito(),
+        AmplifyStorageS3(),
       ]);
       await _amplify.configure(amplifyconfig);
       debugPrint('Successfully configured Amplify 🎉');
